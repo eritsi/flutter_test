@@ -3,20 +3,18 @@ image:
 tasks:
 - before: >
     source ~/.bashrc
-  init: >
-    flutter upgrade && 
-    flutter update-packages --force-upgrade &&
-    npm -g install firebase-tools &&
-    firebase --version &&
-    firebase login --no-localhost &&
-    firebase init &&
-    flutter run -d web-server --no-resident # prebuilds the app
+  init: |
+    flutter upgrade
+    flutter update-packages --force-upgrade
+    npm -g install firebase-tools
+    firebase --version
+    firebase login --no-localhost
     gp sync-done flutter_install
-  command: >
-    flutter run -d web-server --web-renderer html --web-port=8080 --web-hostname=0.0.0.0
 - name: codelabs part
-  init: >
+  init: |
     gp sync-await flutter_install
+    firebase init
+    flutter run -d web-server --no-resident # prebuilds the app
     firebase use --add
     # flutter run -d web-server --web-renderer html
     # firebase deploy --only firestore:indexes
@@ -24,6 +22,8 @@ tasks:
     # flutter build web
     # firebase init hosting
     # firebase deploy --only hosting
+  command: >
+    flutter run -d web-server --web-renderer html --web-port=8080 --web-hostname=0.0.0.0
   openMode: split-right
 ports:
 - port: 8080
