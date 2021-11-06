@@ -5,7 +5,7 @@ tasks:
     source ~/.bashrc
   init: >
     flutter upgrade && 
-    flutter update-packages --force-upgrade &&
+    flutter update-packages --force-upgrade # &&
     # flutter run -d web-server --no-resident # prebuilds the app
     gp sync-done flutter_install
   command: >
@@ -15,6 +15,7 @@ tasks:
     gp sync-await flutter_install
     npm -g install firebase-tools
     firebase --version
+    firebase init
     firebase login --no-localhost
     firebase use --add
     # flutter run -d -d web-server --web-renderer html
