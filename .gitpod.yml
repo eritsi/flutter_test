@@ -16,7 +16,7 @@ tasks:
     read -p "Enter Your Flutter project name: " Flutter_ID
     flutter create $Flutter_ID
     cd $Flutter_ID
-    # firebase init
+    firebase init
     firebase use --add
     flutter run -d web-server --no-resident # prebuilds the app
     # flutter run -d web-server --web-renderer html
