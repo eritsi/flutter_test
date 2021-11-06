@@ -9,7 +9,7 @@ tasks:
     flutter run -d web-server --no-resident # prebuilds the app
     gp sync-done flutter_install
   command: >
-    flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0
+    flutter run -d web-server --web-renderer html --web-port=8080 --web-hostname=0.0.0.0
 - name: codelabs part
   init: >
     gp sync-await flutter_install
@@ -17,7 +17,7 @@ tasks:
     firebase --version
     firebase login --no-localhost
     firebase use --add
-    flutter run -d -d web-server --web-renderer html
+    # flutter run -d -d web-server --web-renderer html
     # firebase deploy --only firestore:indexes
     # firebase deploy --only firestore:rules
     # flutter build web
