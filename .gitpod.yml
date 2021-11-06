@@ -5,20 +5,20 @@ tasks:
     source ~/.bashrc
   init: >
     flutter upgrade && 
-    flutter update-packages --force-upgrade # &&
-    # flutter run -d web-server --no-resident # prebuilds the app
+    flutter update-packages --force-upgrade &&
+    npm -g install firebase-tools &&
+    firebase --version &&
+    firebase init &&
+    flutter run -d web-server --no-resident # prebuilds the app
     gp sync-done flutter_install
   command: >
-    # flutter run -d web-server --web-renderer html --web-port=8080 --web-hostname=0.0.0.0
+    flutter run -d web-server --web-renderer html --web-port=8080 --web-hostname=0.0.0.0
 - name: codelabs part
   init: >
     gp sync-await flutter_install
-    npm -g install firebase-tools
-    firebase --version
-    firebase init
     firebase login --no-localhost
     firebase use --add
-    # flutter run -d -d web-server --web-renderer html
+    # flutter run -d web-server --web-renderer html
     # firebase deploy --only firestore:indexes
     # firebase deploy --only firestore:rules
     # flutter build web
