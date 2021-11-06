@@ -13,10 +13,12 @@ tasks:
 - name: codelabs part
   init: |
     gp sync-await flutter_install
-    flutter create
+    read -p "Enter Your Flutter project name: " Flutter_ID
+    flutter create $Flutter_ID
+    cd $Flutter_ID
     # firebase init
-    flutter run -d web-server --no-resident # prebuilds the app
     firebase use --add
+    flutter run -d web-server --no-resident # prebuilds the app
     # flutter run -d web-server --web-renderer html
     # firebase deploy --only firestore:indexes
     # firebase deploy --only firestore:rules
