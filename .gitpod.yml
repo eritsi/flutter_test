@@ -13,7 +13,8 @@ tasks:
 - name: codelabs part
   init: |
     gp sync-await flutter_install
-    firebase init
+    flutter create
+    # firebase init
     flutter run -d web-server --no-resident # prebuilds the app
     firebase use --add
     # flutter run -d web-server --web-renderer html
