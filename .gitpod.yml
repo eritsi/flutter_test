@@ -14,9 +14,17 @@ tasks:
   init: |
     gp sync-await flutter_install
     read -p "Enter Your Flutter project name: " Flutter_ID
-    flutter create $Flutter_ID
-    cd $Flutter_ID
-    firebase init
+    case $Flutter_ID in
+      "" | "friendlyeats-flutter" )
+        git clone https://github.com/FirebaseExtended/codelab-friendlyeats-flutter.git $Flutter_ID
+        cd $Flutter_ID
+        ;;
+      * )
+        flutter create $Flutter_ID
+        cd $Flutter_ID
+        firebase init
+        ;;
+    esac
     firebase use --add
     flutter run -d web-server --no-resident # prebuilds the app
     # flutter run -d web-server --web-renderer html
