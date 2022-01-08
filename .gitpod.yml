@@ -19,6 +19,11 @@ tasks:
         git clone https://github.com/FirebaseExtended/codelab-friendlyeats-flutter.git $Flutter_ID
         cd $Flutter_ID
         ;;
+      "friendlychat" )
+        git clone https://github.com/firebase/codelab-friendlychat-web $Flutter_ID
+        cd $Flutter_ID
+        firebase init
+        ;;
       * )
         flutter create $Flutter_ID
         cd $Flutter_ID
