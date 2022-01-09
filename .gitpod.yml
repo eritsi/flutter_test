@@ -22,7 +22,7 @@ tasks:
       "friendlychat" )
         git clone https://github.com/firebase/codelab-friendlychat-web $Flutter_ID
         cd $Flutter_ID
-        firebase init
+        cd web
         ;;
       * )
         flutter create $Flutter_ID
