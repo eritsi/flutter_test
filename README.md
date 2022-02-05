@@ -29,7 +29,17 @@ FirebaseのAuthentificationにおいて、承認済みドメインとしてlocal
 この時、 `getFirebaseConfig()` を残しつつ、 `config -> firebaseConfig` へ修正  
 4. (必要に応じ) `web/firebase.json` を編集  
 `"hosting"` に `"site"` 情報を追加  
-> firebase deploy --only hosting:<サイト名>
+> firebase deploy --only hosting:<サイト名>  
+
+### friendlyeats-flutter  
+1. `web/index.html` を編集  
+上書き ： `var firebaseConfig = {}` の中身  
+追加 : 以下2行を　 `firebase-app.js` の後に。  
+  <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-firestore.js"></script>
+2. この状態で承認済みドメインに入っていれば、画面にキャラまで出てくるはず。  
+
+
 
 ## main.dartの例
 widget_intro_examples以下  
