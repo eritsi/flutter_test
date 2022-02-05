@@ -18,20 +18,27 @@ tasks:
       "" | "friendlyeats-flutter" )
         git clone https://github.com/FirebaseExtended/codelab-friendlyeats-flutter.git $Flutter_ID
         cd $Flutter_ID
+        firebase use --add
+        flutter run -d web-server --no-resident # prebuilds the app
         ;;
       "friendlychat" )
         git clone https://github.com/firebase/codelab-friendlychat-web $Flutter_ID
         cd $Flutter_ID
         cd web
+        firebase use --add
+        firebase serve --only hosting
+        # 左のshellにてwebディレクトリへ。以下左で実行
+        # npm install
+        # npm run start
         ;;
       * )
         flutter create $Flutter_ID
         cd $Flutter_ID
         firebase init
+        firebase use --add
+        flutter run -d web-server --no-resident # prebuilds the app
         ;;
     esac
-    firebase use --add
-    flutter run -d web-server --no-resident # prebuilds the app
     # flutter run -d web-server --web-renderer html
     # firebase deploy --only firestore:indexes
     # firebase deploy --only firestore:rules
