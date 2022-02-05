@@ -29,7 +29,7 @@ FirebaseのAuthentificationにおいて、承認済みドメインとしてlocal
 この時、 `getFirebaseConfig()` を残しつつ、 `config -> firebaseConfig` へ修正  
 4. (必要に応じ) `web/firebase.json` を編集  
 `"hosting"` に `"site"` 情報を追加  
-> firebase deploy hosting:site
+> firebase deploy --only hosting:<サイト名>
 
 ## main.dartの例
 widget_intro_examples以下  
